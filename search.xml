@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>%2F2019%2F03%2F10%2FDay%201%2F</url>
+    <content type="text"><![CDATA[Day 1 Remove Duplicates from Sorted Array class Solution { public int removeDuplicates(int[] nums) { if(nums.length == 0){ return 0; } int end = 0; for (int i = 1; i &lt; nums.length; i++){ if (nums[end] != nums[i]){ end ++; nums[end] = nums[i]; } } return end+1; } }]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[买房策略]]></title>
     <url>%2F2018%2F09%2F14%2F%E4%B9%B0%E6%88%BF%E7%AD%96%E7%95%A5%2F</url>
     <content type="text"><![CDATA[9/14/2018:当下的策略很简单，希望以后可以越来越完善。 * list price &gt; budget - hot home: don&apos;t need to have a tour - not hot home: wait * list price &lt; budget - hot home: hurry - not hot home: lowball]]></content>
