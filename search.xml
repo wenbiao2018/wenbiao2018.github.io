@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>%2F2019%2F03%2F10%2FDay%201%2F</url>
-    <content type="text"><![CDATA[Day 1 Remove Duplicates from Sorted Array class Solution { public int removeDuplicates(int[] nums) { if(nums.length == 0){ return 0; } int end = 0; for (int i = 1; i &lt; nums.length; i++){ if (nums[end] != nums[i]){ end ++; nums[end] = nums[i]; } } return end+1; } }]]></content>
+    <title><![CDATA[Day 1]]></title>
+    <url>%2F2019%2F03%2F10%2FDay-1%2F</url>
+    <content type="text"><![CDATA[#你到底什么时候能转行成功？ ##Remove Duplicates from Sorted Array 1234567891011121314151617class Solution &#123; public int removeDuplicates(int[] nums) &#123; if(nums.length == 0)&#123; return 0; &#125; int end = 0; for (int i = 1; i &lt; nums.length; i++)&#123; if (nums[end] != nums[i])&#123; end ++; nums[end] = nums[i]; &#125; &#125; return end+1; &#125;&#125;]]></content>
+      <categories>
+        <category>转行</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[买房策略]]></title>
