@@ -1838,7 +1838,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #4b1dff;
+  background: #57e360;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2940,4 +2940,11 @@ ul.breadcrumb li+li:last-child {
   .post-body {
     text-align: justify;
   }
+}
+img.$github-emojis-class-name {
+  display: inline;
+  height: 1.7em;
+  width: 1.7em;
+  vertical-align: -0.4em;
+  border: none !important;
 }
