@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="#你到底什么时候能转行成功？ ##Remove Duplicates from Sorted Array 1234567891011121314151617class Solution &amp;#123;    public int removeDuplicates(int[] nums) &amp;#123;        if(nums.length == 0)&amp;#123;            retur">
+  <meta name="description" content="#你到底什么时候能转行成功？ ##26.Remove Duplicates from Sorted Array 1234567891011121314151617class Solution &amp;#123;    public int removeDuplicates(int[] nums) &amp;#123;        if(nums.length == 0)&amp;#123;            re">
 <meta name="keywords" content="LeetCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Day 1">
 <meta property="og:url" content="http://yoursite.com/2019/03/10/Day-1/index.html">
 <meta property="og:site_name" content="无烟城">
-<meta property="og:description" content="#你到底什么时候能转行成功？ ##Remove Duplicates from Sorted Array 1234567891011121314151617class Solution &amp;#123;    public int removeDuplicates(int[] nums) &amp;#123;        if(nums.length == 0)&amp;#123;            retur">
+<meta property="og:description" content="#你到底什么时候能转行成功？ ##26.Remove Duplicates from Sorted Array 1234567891011121314151617class Solution &amp;#123;    public int removeDuplicates(int[] nums) &amp;#123;        if(nums.length == 0)&amp;#123;            re">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-10T10:12:09.280Z">
+<meta property="og:updated_time" content="2019-03-10T10:34:06.431Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Day 1">
-<meta name="twitter:description" content="#你到底什么时候能转行成功？ ##Remove Duplicates from Sorted Array 1234567891011121314151617class Solution &amp;#123;    public int removeDuplicates(int[] nums) &amp;#123;        if(nums.length == 0)&amp;#123;            retur">
+<meta name="twitter:description" content="#你到底什么时候能转行成功？ ##26.Remove Duplicates from Sorted Array 1234567891011121314151617class Solution &amp;#123;    public int removeDuplicates(int[] nums) &amp;#123;        if(nums.length == 0)&amp;#123;            re">
 
 
 
@@ -423,8 +423,10 @@
 
       
         <p>#你到底什么时候能转行成功？</p>
-<p>##Remove Duplicates from Sorted Array</p>
+<p>##26.Remove Duplicates from Sorted Array</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.length == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> end = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[end] != nums[i])&#123;</span><br><span class="line">                end ++;</span><br><span class="line">                nums[end] = nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> end+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>##27. Remove Element</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeElement</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.length == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> end = <span class="number">0</span>; <span class="comment">//还可以假想一个-1位element，这样end=-1，下面先end++再赋值</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] != val)&#123;</span><br><span class="line">                nums[end] = nums[i];</span><br><span class="line">                end++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> end;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 

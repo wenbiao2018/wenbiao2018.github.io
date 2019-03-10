@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Day 1]]></title>
     <url>%2F2019%2F03%2F10%2FDay-1%2F</url>
-    <content type="text"><![CDATA[#你到底什么时候能转行成功？ ##Remove Duplicates from Sorted Array 1234567891011121314151617class Solution &#123; public int removeDuplicates(int[] nums) &#123; if(nums.length == 0)&#123; return 0; &#125; int end = 0; for (int i = 1; i &lt; nums.length; i++)&#123; if (nums[end] != nums[i])&#123; end ++; nums[end] = nums[i]; &#125; &#125; return end+1; &#125;&#125;]]></content>
+    <content type="text"><![CDATA[#你到底什么时候能转行成功？ ##26.Remove Duplicates from Sorted Array 1234567891011121314151617class Solution &#123; public int removeDuplicates(int[] nums) &#123; if(nums.length == 0)&#123; return 0; &#125; int end = 0; for (int i = 1; i &lt; nums.length; i++)&#123; if (nums[end] != nums[i])&#123; end ++; nums[end] = nums[i]; &#125; &#125; return end+1; &#125;&#125; ##27. Remove Element 1234567891011121314151617class Solution &#123; public int removeElement(int[] nums, int val) &#123; if(nums.length == 0)&#123; return 0; &#125; int end = 0; //还可以假想一个-1位element，这样end=-1，下面先end++再赋值 for (int i = 0; i &lt; nums.length; i++)&#123; if(nums[i] != val)&#123; nums[end] = nums[i]; end++; &#125; &#125; return end; &#125;&#125;]]></content>
       <categories>
         <category>转行</category>
       </categories>
