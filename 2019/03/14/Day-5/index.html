@@ -117,10 +117,13 @@
 <meta property="og:site_name" content="无烟城">
 <meta property="og:description" content="加油加油！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-14T03:09:21.158Z">
+<meta property="og:image" content="http://yoursite.com/images/LeetCode/205.png">
+<meta property="og:image" content="http://yoursite.com/images/LeetCode/299.png">
+<meta property="og:updated_time" content="2019-03-15T23:45:34.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="12周刷题大作战 - Week 1, Day 5, 3&#x2F;14&#x2F;2019">
 <meta name="twitter:description" content="加油加油！">
+<meta name="twitter:image" content="http://yoursite.com/images/LeetCode/205.png">
 
 
 
@@ -369,12 +372,24 @@
                 
               
 
-              <time title="Created: 2019-03-14 08:09:27 / Modified: 11:09:21" itemprop="dateCreated datePublished" datetime="2019-03-14T08:09:27+08:00">2019-03-14</time>
+              <time title="Created: 2019-03-14 08:09:27" itemprop="dateCreated datePublished" datetime="2019-03-14T08:09:27-07:00">2019-03-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-15 16:45:34" itemprop="dateModified" datetime="2019-03-15T16:45:34-07:00">2019-03-15</time>
               
             
           </span>
@@ -434,24 +449,20 @@ Map&#xFF08;&#x6620;&#x5C04;&#xFF09;&#xFF1A;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x6B
 <ol>
 <li>
 <p>General
-Map&lt;Character, T&gt; map;
-map.put(k, v);
-v = map.get(k);
-if(map.containsKey(k));</p>
+</p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Character, T&gt; map;</span><br><span class="line">map.put(k, v);</span><br><span class="line">v = map.get(k);</span><br><span class="line">if(map.containsKey(k));</span><br></pre></td></tr></tbody></table></figure><p></p>
 </li>
 <li>
 <p>&#x6709;char&#x7684;&#x65F6;&#x5019;&#x7528;&#x8FD9;&#x4E2A;&#x6BD4;&#x8F83;&#x597D;&#xFF0C;char&#x53EA;&#x6709;256&#x4E2A;
-T[] map = new T[256];
-map[k] = v;
-v = map[k];
-if(map[k] ! nullValue)</p>
+</p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">T[] map = new T[256];</span><br><span class="line">map[k] = v;</span><br><span class="line">v = map[k];</span><br><span class="line">if(map[k] ! nullValue)</span><br></pre></td></tr></tbody></table></figure><p></p>
 </li>
 </ol>
 <h3>LeetCode - 205 (1 Easy, 1 Medium, 0 Hard)</h3>
 <h4>205. Isomorphic Strings - Easy</h4>
-<p></p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isIsomorphic</span><span class="params">(String s, String t)</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> mappable(s, t) &amp;&amp; mappable(t, s);<span class="comment">//&#x5982;&#x679C;&#x53EA;&#x5173;&#x5FC3;mappable(s, t)&#x5C31;&#x4E0D;&#x662F;&#x4E00;&#x4E00;&#x6620;&#x5C04;&#xFF0C;testcase: &quot;ab&quot;, &quot;aa&quot;</span></span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">mappable</span><span class="params">(String s, String t)</span> </span>{</span><br><span class="line">        <span class="keyword">char</span>[] map = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">256</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++){</span><br><span class="line">            <span class="keyword">char</span> cS = s.charAt(i);</span><br><span class="line">            <span class="keyword">char</span> cT = t.charAt(i);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(map[cS] == <span class="number">0</span>){</span><br><span class="line">                map[cS] = cT;</span><br><span class="line">            }<span class="keyword">else</span>{</span><br><span class="line">                <span class="keyword">if</span>(map[cS] != cT){</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p><img src="/images/LeetCode/205.png" alt="">
+</p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isIsomorphic</span><span class="params">(String s, String t)</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> mappable(s, t) &amp;&amp; mappable(t, s);<span class="comment">//&#x5982;&#x679C;&#x53EA;&#x5173;&#x5FC3;mappable(s, t)&#x5C31;&#x4E0D;&#x662F;&#x4E00;&#x4E00;&#x6620;&#x5C04;&#xFF0C;testcase: &quot;ab&quot;, &quot;aa&quot;</span></span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">mappable</span><span class="params">(String s, String t)</span> </span>{</span><br><span class="line">        <span class="keyword">char</span>[] map = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">256</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++){</span><br><span class="line">            <span class="keyword">char</span> cS = s.charAt(i);</span><br><span class="line">            <span class="keyword">char</span> cT = t.charAt(i);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(map[cS] == <span class="number">0</span>){</span><br><span class="line">                map[cS] = cT;</span><br><span class="line">            }<span class="keyword">else</span>{</span><br><span class="line">                <span class="keyword">if</span>(map[cS] != cT){</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
 <h4>299. Bulls and Cows - Medium</h4>
-<p></p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getHint</span><span class="params">(String secret, String guess)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span>[] sF = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">int</span>[] gF = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">int</span> cntA = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; secret.length(); i++){</span><br><span class="line">            <span class="keyword">char</span> cS = secret.charAt(i);</span><br><span class="line">            <span class="keyword">char</span> cG = guess.charAt(i);</span><br><span class="line">            <span class="keyword">if</span>(cS == cG){</span><br><span class="line">                cntA ++;</span><br><span class="line">            }<span class="keyword">else</span>{</span><br><span class="line">                sF[cS - <span class="string">&apos;0&apos;</span>]++;<span class="comment">// &apos;0&apos; -&gt; 0, &apos;1&apos; -&gt; 1</span></span><br><span class="line">                gF[cG - <span class="string">&apos;0&apos;</span>]++;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> cntB = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++){</span><br><span class="line">            cntB += Math.min(sF[i], gF[i]);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> cntA + <span class="string">&quot;A&quot;</span> + cntB + <span class="string">&quot;B&quot;</span>;</span><br><span class="line">        </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p><img src="/images/LeetCode/299.png" alt="">
+</p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getHint</span><span class="params">(String secret, String guess)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span>[] sF = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">int</span>[] gF = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">int</span> cntA = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; secret.length(); i++){</span><br><span class="line">            <span class="keyword">char</span> cS = secret.charAt(i);</span><br><span class="line">            <span class="keyword">char</span> cG = guess.charAt(i);</span><br><span class="line">            <span class="keyword">if</span>(cS == cG){</span><br><span class="line">                cntA ++;</span><br><span class="line">            }<span class="keyword">else</span>{</span><br><span class="line">                sF[cS - <span class="string">&apos;0&apos;</span>]++;<span class="comment">// &apos;0&apos; -&gt; 0, &apos;1&apos; -&gt; 1</span></span><br><span class="line">                gF[cG - <span class="string">&apos;0&apos;</span>]++;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> cntB = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; <span class="number">10</span>; i++){</span><br><span class="line">            cntB += Math.min(sF[i], gF[i]);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> cntA + <span class="string">&quot;A&quot;</span> + cntB + <span class="string">&quot;B&quot;</span>;</span><br><span class="line">        </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -518,6 +529,10 @@ if(map[k] ! nullValue)</p>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/15/Day-6/" rel="prev" title="12周刷题大作战 - Week 1, Day 6, 3/15/2019">
+                12周刷题大作战 - Week 1, Day 6, 3/15/2019 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -589,7 +604,7 @@ if(map[k] ! nullValue)</p>
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -671,7 +686,11 @@ if(map[k] ! nullValue)</p>
                     
                       
                     
-                    <span class="site-state-item-count">26</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

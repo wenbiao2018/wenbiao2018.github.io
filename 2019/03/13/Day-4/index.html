@@ -117,10 +117,12 @@
 <meta property="og:site_name" content="无烟城">
 <meta property="og:description" content="3/13: 今天太困了，网也总断，上不了LeetCode，写了一半的Code没法test。 3/14: 先完成昨天的#151">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-14T00:06:10.229Z">
+<meta property="og:image" content="http://yoursite.com/images/LeetCode/151.png">
+<meta property="og:updated_time" content="2019-03-15T23:10:04.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="12周刷题大作战 - Week 1, Day 4, 3&#x2F;13&#x2F;2019">
 <meta name="twitter:description" content="3/13: 今天太困了，网也总断，上不了LeetCode，写了一半的Code没法test。 3/14: 先完成昨天的#151">
+<meta name="twitter:image" content="http://yoursite.com/images/LeetCode/151.png">
 
 
 
@@ -369,7 +371,7 @@
                 
               
 
-              <time title="Created: 2019-03-13 20:14:52" itemprop="dateCreated datePublished" datetime="2019-03-13T20:14:52+08:00">2019-03-13</time>
+              <time title="Created: 2019-03-13 20:14:52" itemprop="dateCreated datePublished" datetime="2019-03-13T20:14:52-07:00">2019-03-13</time>
             
 
             
@@ -386,7 +388,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-14 08:06:10" itemprop="dateModified" datetime="2019-03-14T08:06:10+08:00">2019-03-14</time>
+                <time title="Modified: 2019-03-15 16:10:04" itemprop="dateModified" datetime="2019-03-15T16:10:04-07:00">2019-03-15</time>
               
             
           </span>
@@ -463,7 +465,8 @@
 <h3>&#x6CDB;&#x578B;</h3>
 <h3>LeetCode - 151 (0 Easy, 1 Medium, 0 Hard)</h3>
 <h4>151. Reverse Words in a String - Medium</h4>
-<p></p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reverseWords</span><span class="params">(String s)</span> </span>{</span><br><span class="line">        Stack&lt;String&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="comment">// base case</span></span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// general case</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i &lt; s.length(); i++){</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(i) == <span class="string">&apos; &apos;</span>){ <span class="comment">// should be &apos; &apos; not &quot; &quot;</span></span><br><span class="line">                <span class="keyword">if</span>(s.charAt(i-<span class="number">1</span>) != <span class="string">&apos; &apos;</span>){</span><br><span class="line">                    stack.push(s.substring(start, i));</span><br><span class="line">                }</span><br><span class="line">                start = i+<span class="number">1</span>; <span class="comment">// consider why if s.charAt(i-1) != &apos; &apos; or not, start always should equal to i+1</span></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        stack.push(s.substring(start)); <span class="comment">// if start = s.length(), will return an empty string</span></span><br><span class="line">        </span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">while</span> (!stack.isEmpty()){</span><br><span class="line">            sb.append(stack.pop() + <span class="string">&quot; &quot;</span>);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> sb.toString().trim();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p><img src="/images/LeetCode/151.png" alt="">
+</p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reverseWords</span><span class="params">(String s)</span> </span>{</span><br><span class="line">        Stack&lt;String&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="comment">// base case</span></span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// general case</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i &lt; s.length(); i++){</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(i) == <span class="string">&apos; &apos;</span>){ <span class="comment">// should be &apos; &apos; not &quot; &quot;</span></span><br><span class="line">                <span class="keyword">if</span>(s.charAt(i-<span class="number">1</span>) != <span class="string">&apos; &apos;</span>){</span><br><span class="line">                    stack.push(s.substring(start, i));</span><br><span class="line">                }</span><br><span class="line">                start = i+<span class="number">1</span>; <span class="comment">// consider why if s.charAt(i-1) != &apos; &apos; or not, start always should equal to i+1</span></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        stack.push(s.substring(start)); <span class="comment">// if start = s.length(), will return an empty string</span></span><br><span class="line">        </span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">while</span> (!stack.isEmpty()){</span><br><span class="line">            sb.append(stack.pop() + <span class="string">&quot; &quot;</span>);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> sb.toString().trim();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -611,7 +614,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -693,7 +696,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">26</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
