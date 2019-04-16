@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="递归 想要用递归必须知道两个条件：  递归出口(终止递归的条件) 递归表达式(规律)  Ref: 递归就这么简单 在java语言中，使用递归调用时，如果过多的调用容易造成java.lang.StackOverflowError即栈溢出和程序执行过慢。这是一个潜在Bug和影响程序执行效率问题，需要谨慎使用。 根本原因是这样的,对于每一个线程,都有一个java栈 ,当有一个方法被调用的时候,会产生一些">
+<meta name="keywords" content="LeetCode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="12周刷题大作战 - Week 5, Day 33, 4&#x2F;11&#x2F;2019">
+<meta property="og:url" content="http://yoursite.com/2019/04/11/Day-33/index.html">
+<meta property="og:site_name" content="无烟城">
+<meta property="og:description" content="递归 想要用递归必须知道两个条件：  递归出口(终止递归的条件) 递归表达式(规律)  Ref: 递归就这么简单 在java语言中，使用递归调用时，如果过多的调用容易造成java.lang.StackOverflowError即栈溢出和程序执行过慢。这是一个潜在Bug和影响程序执行效率问题，需要谨慎使用。 根本原因是这样的,对于每一个线程,都有一个java栈 ,当有一个方法被调用的时候,会产生一些">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-12T03:42:07.634Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="12周刷题大作战 - Week 5, Day 33, 4&#x2F;11&#x2F;2019">
+<meta name="twitter:description" content="递归 想要用递归必须知道两个条件：  递归出口(终止递归的条件) 递归表达式(规律)  Ref: 递归就这么简单 在java语言中，使用递归调用时，如果过多的调用容易造成java.lang.StackOverflowError即栈溢出和程序执行过慢。这是一个潜在Bug和影响程序执行效率问题，需要谨慎使用。 根本原因是这样的,对于每一个线程,都有一个java栈 ,当有一个方法被调用的时候,会产生一些">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/11/Day-33/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>12周刷题大作战 - Week 5, Day 33, 4/11/2019 | 无烟城</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">无烟城</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/11/Day-33/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wenbiao">
+      <meta itemprop="description" content="easy come easy go">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无烟城">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">12周刷题大作战 - Week 5, Day 33, 4/11/2019
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-11 12:41:18 / Modified: 20:42:07" itemprop="dateCreated datePublished" datetime="2019-04-11T12:41:18-07:00">2019-04-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/转行/" itemprop="url" rel="index"><span itemprop="name">转行</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4>&#x9012;&#x5F52;</h4>
+<p>&#x60F3;&#x8981;&#x7528;&#x9012;&#x5F52;&#x5FC5;&#x987B;&#x77E5;&#x9053;&#x4E24;&#x4E2A;&#x6761;&#x4EF6;&#xFF1A;</p>
+<ul>
+<li>&#x9012;&#x5F52;&#x51FA;&#x53E3;(&#x7EC8;&#x6B62;&#x9012;&#x5F52;&#x7684;&#x6761;&#x4EF6;)</li>
+<li>&#x9012;&#x5F52;&#x8868;&#x8FBE;&#x5F0F;(&#x89C4;&#x5F8B;)</li>
+</ul>
+<p><a href="https://segmentfault.com/a/1190000013861208" target="_blank" rel="noopener">Ref: &#x9012;&#x5F52;&#x5C31;&#x8FD9;&#x4E48;&#x7B80;&#x5355;</a></p>
+<p>&#x5728;java&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x4F7F;&#x7528;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x8FC7;&#x591A;&#x7684;&#x8C03;&#x7528;&#x5BB9;&#x6613;&#x9020;&#x6210;java.lang.StackOverflowError&#x5373;&#x6808;&#x6EA2;&#x51FA;&#x548C;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x8FC7;&#x6162;&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x6F5C;&#x5728;Bug&#x548C;&#x5F71;&#x54CD;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x6548;&#x7387;&#x95EE;&#x9898;&#xFF0C;&#x9700;&#x8981;&#x8C28;&#x614E;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x6839;&#x672C;&#x539F;&#x56E0;&#x662F;&#x8FD9;&#x6837;&#x7684;,&#x5BF9;&#x4E8E;&#x6BCF;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;,&#x90FD;&#x6709;&#x4E00;&#x4E2A;java&#x6808; ,&#x5F53;&#x6709;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x88AB;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;,&#x4F1A;&#x4EA7;&#x751F;&#x4E00;&#x4E9B;&#x8DDF;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x76F8;&#x5173;&#x7684;&#x4FE1;&#x606F;,&#x5982;&#x65B9;&#x6CD5;&#x540D;&#xFF0C;&#x53C2;&#x6570;&#xFF0C;&#x4E2D;&#x95F4;&#x53D8;&#x91CF;&#x7B49;&#x7B49;,&#x8FD9;&#x4E9B;&#x53EB;&#x505A;&#x6808;&#x5E27; ,&#x5F53;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x5B8C;&#x6BD5;  &#x8FD9;&#x4E2A;&#x6808;&#x5E27;&#x624D;&#x4F1A;&#x4ECE;&#x6808;&#x9876;pop&#x6389;  &#x4F60;&#x9012;&#x5F52;&#x7684;&#x8BDD;  &#x4F1A;&#x4E00;&#x76F4;&#x5411;&#x6808;&#x91CC;push&#x6808;&#x5E27;  &#x800C;&#x8FD9;&#x4E2A;java&#x6808;&#x662F;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x957F;&#x5EA6;&#x6216;&#x6DF1;&#x5EA6;&#x7684;,&#x5F53;&#x6808;&#x6EE1;&#x4E86;,&#x65E0;&#x6CD5;&#x518D;&#x8FDB;&#x884C;push&#x7684;&#x65F6;&#x5019; &#x5C31;&#x51FA;&#x73B0;&#x4F60;&#x4E0A;&#x9762;&#x7684;&#x5F02;&#x5E38;&#x4E86;,&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#x7684;&#x8BDD; &#x5C31;&#x4E0D;&#x8981;&#x7528;&#x9012;&#x5F52;&#x64CD;&#x4F5C; &#x6539;&#x7528;for &#x800C;&#x4E14;&#x5E73;&#x65F6;&#x4E5F;&#x4E0D;&#x5EFA;&#x8BAE;&#x7528;&#x9012;&#x5F52;&#x7684;,&#x6548;&#x7387;&#x592A;&#x4F4E;&#x4E86; .</p>
+<p>&#x6808;&#x6EA2;&#x51FA;&#x4E86;&#xFF0C;JVM&#x4F9D;&#x7136;&#x662F;&#x91C7;&#x7528;&#x6808;&#x5F0F;&#x7684;&#x865A;&#x62DF;&#x673A;&#xFF0C;&#x8FD9;&#x4E2A;&#x548C;C&#x548C;Pascal&#x90FD;&#x662F;&#x4E00;&#x6837;&#x7684;&#x3002;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x8FC7;&#x7A0B;&#x90FD;&#x4F53;&#x73B0;&#x5728;&#x5806;&#x6808;&#x548C;&#x9000;&#x6808;&#x4E0A;&#x4E86;&#x3002;&#x4F60;&#x8C03;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x201C;&#x5C42;&#x201D;&#x592A;&#x591A;&#x4E86;&#xFF0C;&#x4EE5;&#x81F4;&#x4E8E;&#x628A;&#x6808;&#x533A;&#x6EA2;&#x51FA;&#x4E86;&#x3002;<br>
+&#x901A;&#x5E38;&#x6765;&#x8BB2;&#xFF0C;&#x4E00;&#x822C;&#x6808;&#x533A;&#x8FDC;&#x8FDC;&#x5C0F;&#x4E8E;&#x5806;&#x533A;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x8FC7;&#x7A0B;&#x5F80;&#x5F80;&#x4E0D;&#x4F1A;&#x591A;&#x4E8E;&#x4E0A;&#x5343;&#x5C42;&#xFF0C;&#x800C;&#x5373;&#x4FBF;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x9700;&#x8981;1K&#x7684;&#x7A7A;&#x95F4;(&#x8FD9;&#x4E2A;&#x5927;&#x7EA6;&#x76F8;&#x5F53;&#x4E8E;&#x5728;&#x4E00;&#x4E2A;C&#x51FD;&#x6570;&#x5185;&#x58F0;&#x660E;&#x4E86;256&#x4E2A;int&#x7C7B;&#x578B;&#x7684;&#x53D8;&#x91CF;)&#xFF0C;&#x90A3;&#x4E48;&#x6808;&#x533A;&#x4E5F;&#x4E0D;&#x8FC7;&#x662F;&#x9700;&#x8981;1MB&#x7684;&#x7A7A;&#x95F4;&#x3002;&#x901A;&#x5E38;&#x6808;&#x7684;&#x5927;&#x5C0F;&#x662F;1&#xFF0D;2MB&#x7684;&#x3002;&#x901A;&#x5E38;&#x9012;&#x5F52;&#x4E5F;&#x4E0D;&#x8981;&#x9012;&#x5F52;&#x7684;&#x5C42;&#x6B21;&#x8FC7;&#x591A;&#xFF0C;&#x5F88;&#x5BB9;&#x6613;&#x6EA2;&#x51FA;.<br>
+<a href="https://blog.csdn.net/wxw520zdh/article/details/60144014" target="_blank" rel="noopener">Ref: &#x614E;&#x7528;Java&#x9012;&#x5F52;&#x8C03;&#x7528;</a>
+<a id="more"></a></p>
+<h4>LeetCode</h4>
+<p>&#x590D;&#x4E60;</p>
+<h5>50. Pow(x, n)</h5>
+<ol>
+<li>&#x4E0D;&#x80FD;&#x7528;stack&#x505A;&#xFF0C;1.00000&#xFF0C;-2147483648&#x4F1A;&#x9020;&#x6210;MLE</li>
+<li>&#x4E2D;&#x95F4;&#x5FC5;&#x987B;&#x8BBE;&#x4E2A;&#x4E2D;&#x95F4;&#x53D8;&#x91CF;temp&#xFF0C;&#x4E0D;&#x7136;&#x4F1A;stackoverflow&#xFF0C;&#x4F1A;&#x4E0D;&#x4F1A;&#x662F;&#x56E0;&#x4E3A;&#x5982;&#x679C;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#xFF0C;&#x6BCF;&#x4E00;&#x8F6E;&#x76F8;&#x5F53;&#x4E8E;&#x8C03;&#x7528;&#x4E24;&#x6B21;&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x5F88;&#x591A;
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">myPow</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">int</span> n)</span> </span>{</span><br><span class="line">        <span class="comment">// if current pow is even, &#x4F20;&#x5165; 0 else &#x4F20;&#x5165; 1</span></span><br><span class="line">        <span class="comment">// if current pow == 1, &#x5F00;&#x59CB;&#x4ECE;stack&#x62FF;&#x51FA;</span></span><br><span class="line">        <span class="keyword">if</span>(x == <span class="number">0.0</span>){</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>){</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        }<span class="keyword">else</span>{</span><br><span class="line">            <span class="keyword">return</span> newPow(x, n);</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">double</span> <span class="title">newPow</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">long</span> n)</span></span>{</span><br><span class="line">        <span class="keyword">if</span>(n&lt;<span class="number">0</span>){</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1.0</span>/newPow(x, -<span class="number">1</span>*n);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span>(n != <span class="number">1</span>){</span><br><span class="line">            <span class="keyword">double</span> temp = newPow(x, n/<span class="number">2</span>); </span><br><span class="line">            <span class="keyword">if</span>(n%<span class="number">2</span> == <span class="number">1</span>){</span><br><span class="line">                <span class="comment">//System.out.println(n/2);                </span></span><br><span class="line">                <span class="keyword">return</span> temp*temp*x;</span><br><span class="line">            }<span class="keyword">else</span>{</span><br><span class="line">                <span class="comment">//System.out.println(n/2);</span></span><br><span class="line">                <span class="keyword">return</span> temp*temp;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+<h5>56. Merge Intervals</h5>
+<p>&#x8FD8;&#x884C; &#x4E24;&#x904D;&#x8FC7;
+</p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for an interval.</span></span><br><span class="line"><span class="comment"> * public class Interval {</span></span><br><span class="line"><span class="comment"> *     int start;</span></span><br><span class="line"><span class="comment"> *     int end;</span></span><br><span class="line"><span class="comment"> *     Interval() { start = 0; end = 0; }</span></span><br><span class="line"><span class="comment"> *     Interval(int s, int e) { start = s; end = e; }</span></span><br><span class="line"><span class="comment"> * }</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Interval&gt; <span class="title">merge</span><span class="params">(List&lt;Interval&gt; intervals)</span> </span>{</span><br><span class="line">        PriorityQueue&lt;Interval&gt; minHeap = <span class="keyword">new</span> PriorityQueue&lt;&gt;((o1, o2) -&gt; Integer.compare(o1.start, o2.start));</span><br><span class="line">        <span class="comment">//Stack&lt;Interval&gt; stack = new Stack&lt;&gt;();</span></span><br><span class="line">        List&lt;Interval&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span>(intervals.size() == <span class="number">0</span>){</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(Interval i:intervals){</span><br><span class="line">            minHeap.add(i);</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        Interval pre = <span class="keyword">new</span> Interval();</span><br><span class="line">        <span class="keyword">if</span>(!minHeap.isEmpty()){</span><br><span class="line">            pre = minHeap.poll();</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(!minHeap.isEmpty()){</span><br><span class="line">            Interval cur = minHeap.peek();</span><br><span class="line">            <span class="keyword">if</span>(pre.end &gt;= cur.start){</span><br><span class="line">                minHeap.remove();</span><br><span class="line">                <span class="comment">//minHeap.add(new Interval(pre.start, cur.end));</span></span><br><span class="line">                pre = <span class="keyword">new</span> Interval(pre.start, Math.max(cur.end, pre.end));</span><br><span class="line">            }<span class="keyword">else</span>{</span><br><span class="line">                result.add(pre);</span><br><span class="line">                pre = minHeap.remove();</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        result.add(pre);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
+<h5>76. Minimum Window Substring</h5>
+<p>&#x6BD4;&#x4E0A;&#x6B21;&#x5F3A;&#xFF0C;&#x4E09;&#x904D;&#x5C31;&#x8FC7;&#x4E86;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x65F6;&#x65F6;&#x523B;&#x523B;&#x8003;&#x8651;&#x8D8A;&#x754C;&#x7684;&#x4E8B;&#x60C5;
+</p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">minWindow</span><span class="params">(String s, String t)</span> </span>{</span><br><span class="line">        <span class="comment">//&#x628A;T&#x8FC7;&#x4E00;&#x904D;&#xFF0C;&#x627E;&#x5230;&#x90FD;&#x6709;&#x54EA;&#x4E9B;&#x5B57;&#x6BCD;&#xFF0C;&#x5E76;&#x4E14;&#x6BCF;&#x4E2A;&#x5B57;&#x6BCD;&#x51FA;&#x73B0;&#x51E0;&#x6B21;</span></span><br><span class="line">        <span class="comment">//&#x628A;S&#x8FC7;&#x4E00;&#x904D;</span></span><br><span class="line">        <span class="comment">//&#x5982;&#x679C;&#x5F53;&#x524D;&#x5B57;&#x6BCD;&#x51FA;&#x73B0;&#x5728;T&#x4E2D;&#xFF0C;freq++,&#x5982;&#x679C;&#x6CA1;&#x8FBE;&#x5230;T&#x4E2D;&#x7684;freq&#xFF0C;cnt--</span></span><br><span class="line">        <span class="comment">//freqS[s[start]] &gt; freqT[s[start]],&#x5220;&#x9664;&#x5B57;&#x6BCD;</span></span><br><span class="line">        <span class="comment">//&#x5982;&#x679C;cnt==0&#xFF0C;&#x53D6;&#x51FA;substring</span></span><br><span class="line">        </span><br><span class="line">        String result = s;</span><br><span class="line">        <span class="keyword">if</span>(t.length() == <span class="number">0</span>){</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">boolean</span>[] map = <span class="keyword">new</span> <span class="keyword">boolean</span>[<span class="number">256</span>];</span><br><span class="line">        <span class="keyword">int</span>[] freqT = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>];</span><br><span class="line">        <span class="keyword">int</span>[] freqS = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>];</span><br><span class="line">        <span class="keyword">int</span> cnt = t.length();</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//&#x628A;T&#x8FC7;&#x4E00;&#x904D;&#xFF0C;&#x627E;&#x5230;&#x90FD;&#x6709;&#x54EA;&#x4E9B;&#x5B57;&#x6BCD;&#xFF0C;&#x5E76;&#x4E14;&#x6BCF;&#x4E2A;&#x5B57;&#x6BCD;&#x51FA;&#x73B0;&#x51E0;&#x6B21;</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;t.length(); i++){</span><br><span class="line">            <span class="keyword">char</span> c = t.charAt(i);</span><br><span class="line">            map[c] = <span class="keyword">true</span>;</span><br><span class="line">            freqT[c]++;</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">//&#x628A;S&#x8FC7;&#x4E00;&#x904D;</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s.length(); i++){</span><br><span class="line">            <span class="keyword">char</span> cur = s.charAt(i);</span><br><span class="line">            <span class="comment">//&#x5982;&#x679C;&#x5F53;&#x524D;&#x5B57;&#x6BCD;&#x51FA;&#x73B0;&#x5728;T&#x4E2D;&#xFF0C;freq++,&#x5982;&#x679C;&#x6CA1;&#x8FBE;&#x5230;T&#x4E2D;&#x7684;freq&#xFF0C;cnt--</span></span><br><span class="line">            <span class="keyword">if</span>(map[cur]){</span><br><span class="line">                freqS[cur]++;</span><br><span class="line">                <span class="keyword">if</span>(freqS[cur] &lt;= freqT[cur]){</span><br><span class="line">                    cnt--;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="comment">//freqS[s[start]] &gt; freqT[s[start]],&#x5220;&#x9664;&#x5B57;&#x6BCD;</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">while</span>(start &lt; s.length() &amp;&amp; (freqS[s.charAt(start)] &gt; freqT[s.charAt(start)] || !map[s.charAt(start)])){<span class="comment">//&#x5982;&#x679C;start&#x4E0A;&#x7684;&#x70B9;&#x4E00;&#x76F4;&#x4E0D;&#x5728;t&#x4E2D;&#xFF0C;&#x4E00;&#x76F4;&#x5220;&#x4E00;&#x76F4;&#x5220;&#x4F1A;&#x51FA;&#x73B0;&#x8D8A;&#x754C;</span></span><br><span class="line">                freqS[s.charAt(start)]--;</span><br><span class="line">                start++;</span><br><span class="line">                <span class="comment">//System.out.println(start);</span></span><br><span class="line">            }</span><br><span class="line">            </span><br><span class="line">            <span class="comment">//&#x5982;&#x679C;cnt==0&#xFF0C;&#x53D6;&#x51FA;substring</span></span><br><span class="line">            <span class="keyword">if</span>(cnt == <span class="number">0</span> &amp;&amp; result.length()&gt;i+<span class="number">1</span>-start){</span><br><span class="line">                result = s.substring(start, i+<span class="number">1</span>);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(cnt &gt; <span class="number">0</span> &amp;&amp; result == s){</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">        </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
+<h5>179. Largest Number</h5>
+<p>&#x5199;&#x7684;&#x6BD4;&#x8001;&#x5E08;&#x505A;&#x7684;&#x9EBB;&#x70E6;&#xFF0C;&#x4E0D;&#x8FC7;&#x5FEB;&#x4E86;&#x4E00;&#x4E9B;
+</p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">largestNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>{</span><br><span class="line">        <span class="comment">//&#x957F;&#x5EA6;&#x76F8;&#x7B49;&#xFF0C;&#x6BD4;&#x8F83;&#x5927;&#x5C0F;</span></span><br><span class="line">        <span class="comment">//&#x957F;&#x5EA6;&#x4E0D;&#x7B49;&#xFF0C;&#x6BD4;&#x8F83;s1s2&#x548C;s2s1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//String result = &quot;&quot;;</span></span><br><span class="line">        Comparator&lt;Integer&gt; comparator = <span class="keyword">new</span> Comparator(){</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            </span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Object o1, Object o2)</span></span>{</span><br><span class="line">                String s1 = String.valueOf(o1);</span><br><span class="line">                String s2 = String.valueOf(o2);</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span>(s1.length() == s2.length()){</span><br><span class="line">                    <span class="keyword">return</span> s2.compareTo(s1);</span><br><span class="line">                    </span><br><span class="line">                }<span class="keyword">else</span>{</span><br><span class="line">                    String c1 = s1 + s2;</span><br><span class="line">                    String c2 = s2 + s1;</span><br><span class="line">                    <span class="keyword">return</span> c2.compareTo(c1);</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        };</span><br><span class="line">            </span><br><span class="line">        PriorityQueue&lt;Integer&gt; minHeap = <span class="keyword">new</span> PriorityQueue&lt;&gt;(comparator);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num:nums){</span><br><span class="line">            minHeap.add(num);</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">while</span>(!minHeap.isEmpty()){</span><br><span class="line">            sb.append(minHeap.poll());</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        String result = sb.toString();</span><br><span class="line">        <span class="keyword">if</span>(result.equals(<span class="string">&quot;&quot;</span>) || result.charAt(<span class="number">0</span>) == <span class="string">&apos;0&apos;</span>){</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/10/Day-32/" rel="next" title="12周刷题大作战 - Week 5, Day 32, 4/10/2019">
+                <i class="fa fa-chevron-left"></i> 12周刷题大作战 - Week 5, Day 32, 4/10/2019
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/14/Day-34/" rel="prev" title="Day 34">
+                Day 34 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Wenbiao">
+            
+              <p class="site-author-name" itemprop="name">Wenbiao</p>
+              <p class="site-description motion-element" itemprop="description">easy come easy go</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">49</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">LeetCode</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">50. Pow(x, n)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">56. Merge Intervals</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">76. Minimum Window Substring</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.</span> <span class="nav-text">179. Largest Number</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wenbiao</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
