@@ -109,17 +109,17 @@
 
 
 
-  <meta name="description" content="LeetCode 244. Shortest Word Distance 2 1234567891011121314151617181920212223242526272829303132333435363738394041424344class WordDistance {        Map&amp;lt;String, List&amp;lt;Integer&amp;gt;&amp;gt; map = new HashM">
+  <meta name="description" content="LeetCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Day 36">
+<meta property="og:title" content="12周刷题大作战 - Week 5, Day 36, 4&#x2F;14&#x2F;2019">
 <meta property="og:url" content="http://yoursite.com/2019/04/14/Day-36/index.html">
 <meta property="og:site_name" content="无烟城">
-<meta property="og:description" content="LeetCode 244. Shortest Word Distance 2 1234567891011121314151617181920212223242526272829303132333435363738394041424344class WordDistance {        Map&amp;lt;String, List&amp;lt;Integer&amp;gt;&amp;gt; map = new HashM">
+<meta property="og:description" content="LeetCode">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-15T01:21:59.719Z">
+<meta property="og:updated_time" content="2019-04-18T02:18:09.203Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Day 36">
-<meta name="twitter:description" content="LeetCode 244. Shortest Word Distance 2 1234567891011121314151617181920212223242526272829303132333435363738394041424344class WordDistance {        Map&amp;lt;String, List&amp;lt;Integer&amp;gt;&amp;gt; map = new HashM">
+<meta name="twitter:title" content="12周刷题大作战 - Week 5, Day 36, 4&#x2F;14&#x2F;2019">
+<meta name="twitter:description" content="LeetCode">
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>Day 36 | 无烟城</title>
+  <title>12周刷题大作战 - Week 5, Day 36, 4/14/2019 | 无烟城</title>
   
 
 
@@ -343,7 +343,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Day 36
+          <h1 class="post-title" itemprop="name headline">12周刷题大作战 - Week 5, Day 36, 4/14/2019
               
             
           </h1>
@@ -368,12 +368,24 @@
                 
               
 
-              <time title="Created: 2019-04-14 15:01:35 / Modified: 18:21:59" itemprop="dateCreated datePublished" datetime="2019-04-14T15:01:35-07:00">2019-04-14</time>
+              <time title="Created: 2019-04-14 15:01:35" itemprop="dateCreated datePublished" datetime="2019-04-14T15:01:35-07:00">2019-04-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-17 19:18:09" itemprop="dateModified" datetime="2019-04-17T19:18:09-07:00">2019-04-17</time>
               
             
           </span>
@@ -407,6 +419,7 @@
 
       
         <h4>LeetCode</h4>
+<p><a id="more"></a></p>
 <h5>244. Shortest Word Distance 2</h5>
 <p></p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WordDistance</span> </span>{</span><br><span class="line">    </span><br><span class="line">    Map&lt;String, List&lt;Integer&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WordDistance</span><span class="params">(String[] words)</span> </span>{</span><br><span class="line">                </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;words.length; i++){</span><br><span class="line">            String word = words[i];</span><br><span class="line">            List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(word)){</span><br><span class="line">                list = map.get(word);                </span><br><span class="line">            }</span><br><span class="line">            list.add(i);</span><br><span class="line">            map.put(word, list);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">shortest</span><span class="params">(String word1, String word2)</span> </span>{</span><br><span class="line">        TreeSet&lt;Integer&gt; minHeap = <span class="keyword">new</span> TreeSet&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i:map.get(word2)){</span><br><span class="line">            minHeap.add(i);</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> result=Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i:map.get(word1)){</span><br><span class="line">            <span class="comment">//int floor = minHeap.floor(i); int cannot be null</span></span><br><span class="line">            <span class="comment">//int ceiling = minHeap.ceiling(i);</span></span><br><span class="line">            <span class="keyword">if</span>(minHeap.floor(i) != <span class="keyword">null</span>){</span><br><span class="line">                result = Math.min(result, i - minHeap.floor(i));</span><br><span class="line">            }</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(minHeap.ceiling(i) != <span class="keyword">null</span>){</span><br><span class="line">                result = Math.min(result, minHeap.ceiling(i) - i);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your WordDistance object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * WordDistance obj = new WordDistance(words);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj.shortest(word1,word2);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <h5>253. Meeting Rooms 2</h5>
@@ -463,8 +476,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/14/Day-35/" rel="next" title="Day 35">
-                <i class="fa fa-chevron-left"></i> Day 35
+              <a href="/2019/04/14/Day-35/" rel="next" title="12周刷题大作战 - Week 5, Day 35, 4/13/2019">
+                <i class="fa fa-chevron-left"></i> 12周刷题大作战 - Week 5, Day 35, 4/13/2019
               </a>
             
           </div>
@@ -472,6 +485,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/17/Day-37/" rel="prev" title="12周刷题大作战 - Week 6, Day 37, 4/15/2019">
+                12周刷题大作战 - Week 6, Day 37, 4/15/2019 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -543,7 +560,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
