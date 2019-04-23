@@ -110,16 +110,21 @@
 
 
   <meta name="description" content="30天了，今天很困，因为七点半就上班了，五点下班来图书馆加油！">
+<meta name="keywords" content="LeetCode,244,3,340">
 <meta property="og:type" content="article">
 <meta property="og:title" content="12周刷题大作战 - Week 5, Day 30, 4&#x2F;8&#x2F;2019">
 <meta property="og:url" content="http://yoursite.com/2019/04/08/Day-30/index.html">
 <meta property="og:site_name" content="无烟城">
 <meta property="og:description" content="30天了，今天很困，因为七点半就上班了，五点下班来图书馆加油！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-10T02:02:53.843Z">
+<meta property="og:image" content="http://yoursite.com/images/LeetCode/244.png">
+<meta property="og:image" content="http://yoursite.com/images/LeetCode/3.png">
+<meta property="og:image" content="http://yoursite.com/images/LeetCode/340.png">
+<meta property="og:updated_time" content="2019-04-22T03:50:09.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="12周刷题大作战 - Week 5, Day 30, 4&#x2F;8&#x2F;2019">
 <meta name="twitter:description" content="30天了，今天很困，因为七点半就上班了，五点下班来图书馆加油！">
+<meta name="twitter:image" content="http://yoursite.com/images/LeetCode/244.png">
 
 
 
@@ -385,11 +390,29 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-09 19:02:53" itemprop="dateModified" datetime="2019-04-09T19:02:53-07:00">2019-04-09</time>
+                <time title="Modified: 2019-04-21 20:50:09" itemprop="dateModified" datetime="2019-04-21T20:50:09-07:00">2019-04-21</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/转行/" itemprop="url" rel="index"><span itemprop="name">转行</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -420,15 +443,18 @@
       
         <p>30&#x5929;&#x4E86;&#xFF0C;&#x4ECA;&#x5929;&#x5F88;&#x56F0;&#xFF0C;&#x56E0;&#x4E3A;&#x4E03;&#x70B9;&#x534A;&#x5C31;&#x4E0A;&#x73ED;&#x4E86;&#xFF0C;&#x4E94;&#x70B9;&#x4E0B;&#x73ED;&#x6765;&#x56FE;&#x4E66;&#x9986;&#x52A0;&#x6CB9;&#xFF01;
 <a id="more"></a></p>
-<h4>LeetCode</h4>
+<h4>LeetCode - (0 Easy, 2 Medium, 1 Hard)</h4>
 <h5>244. Shortest Word Distance 2 - Medium</h5>
-<p>&#x4E00;&#x628A;&#x8FC7;&#xFF0C;&#x60F3;&#x4E0D;&#x5230;&#x554A;&#x60F3;&#x4E0D;&#x5230;
+<p><img src="/images/LeetCode/244.png" alt="">
+&#x4E00;&#x628A;&#x8FC7;&#xFF0C;&#x60F3;&#x4E0D;&#x5230;&#x554A;&#x60F3;&#x4E0D;&#x5230;
 </p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WordDistance</span> </span>{</span><br><span class="line">    Map&lt;String, TreeSet&lt;Integer&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WordDistance</span><span class="params">(String[] words)</span> </span>{       </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;words.length; i++){</span><br><span class="line">            <span class="keyword">if</span>(!map.containsKey(words[i])){</span><br><span class="line">                TreeSet&lt;Integer&gt; bst = <span class="keyword">new</span> TreeSet&lt;&gt;();</span><br><span class="line">                bst.add(i);</span><br><span class="line">                map.put(words[i], bst);</span><br><span class="line">                </span><br><span class="line">            }<span class="keyword">else</span>{</span><br><span class="line">                TreeSet&lt;Integer&gt; bst = map.get(words[i]);</span><br><span class="line">                bst.add(i);</span><br><span class="line">                map.put(words[i], bst);</span><br><span class="line">            }            </span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">shortest</span><span class="params">(String word1, String word2)</span> </span>{</span><br><span class="line">        TreeSet&lt;Integer&gt; set1 = map.get(word1);</span><br><span class="line">        TreeSet&lt;Integer&gt; set2 = map.get(word2);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> min = Integer.MAX_VALUE;</span><br><span class="line">        Iterator itr = set1.iterator();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(itr.hasNext()){</span><br><span class="line">            <span class="keyword">int</span> cur = (<span class="keyword">int</span>)(itr.next());</span><br><span class="line">            <span class="keyword">if</span>(set2.ceiling(cur) != <span class="keyword">null</span>){</span><br><span class="line">                min = Math.min(min, set2.ceiling(cur)-cur);</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>(set2.floor(cur) != <span class="keyword">null</span>){</span><br><span class="line">                min = Math.min(min, cur-set2.floor(cur)); </span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> min;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your WordDistance object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * WordDistance obj = new WordDistance(words);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj.shortest(word1,word2);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <h5>3. Longest Substring Without Repeating Characters - Medium</h5>
 <p>&#x5DEE;&#x70B9;&#x4E00;&#x6B21;&#x5C31;&#x8FC7;&#x4E86;&#xFF0C;&#x7ED3;&#x679C;&#x603B;&#x4E0D;&#x52A8;&#x624B;&#x753B;&#x4E00;&#x753B;&#xFF0C;&#x8D8A;&#x60F3;&#x8D8A;&#x504F;
+<img src="/images/LeetCode/3.png" alt="">
 </p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>{</span><br><span class="line">        <span class="keyword">if</span>(s.length() == <span class="number">0</span>){</span><br><span class="line">            <span class="comment">//System.out.println(&quot;test&quot;);</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line">        Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="comment">//System.out.println(s.length());</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s.length(); i++){</span><br><span class="line">            <span class="keyword">char</span> c = s.charAt(i);</span><br><span class="line">            <span class="keyword">if</span>(!map.containsKey(c)){</span><br><span class="line">                map.put(c, i);</span><br><span class="line">            }<span class="keyword">else</span>{</span><br><span class="line">                result = Math.max(result, i-start);</span><br><span class="line">                <span class="keyword">int</span> pre = map.get(c);</span><br><span class="line">                <span class="keyword">while</span>(pre&gt;=start){</span><br><span class="line">                    map.remove(start);</span><br><span class="line">                    start++;</span><br><span class="line">                }</span><br><span class="line">                <span class="comment">//start = map.get(c) + 1;</span></span><br><span class="line">                map.put(c, i);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        result = Math.max(result, s.length()-start);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
-<h5>340. Longest Substring with At Most K Distinct Characters</h5>
+<h5>340. Longest Substring with At Most K Distinct Characters - Hard</h5>
 <p>&#x4E00;&#x6B21;&#x8FC7;&#xFF0C;&#x592A;&#x7D27;&#x5F20;&#x4E86;&#xFF0C;&#x8FD8;&#x662F;&#x8981;&#x52A8;&#x7B14;&#x753B;&#x753B;&#x554A;
+<img src="/images/LeetCode/340.png" alt="">
 </p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstringKDistinct</span><span class="params">(String s, <span class="keyword">int</span> k)</span> </span>{</span><br><span class="line">        <span class="keyword">if</span>(s.length() == <span class="number">0</span>){</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span>[] map = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;s.length(); i++){</span><br><span class="line">            <span class="keyword">char</span> c = s.charAt(i);</span><br><span class="line">            <span class="keyword">if</span>(map[c] != <span class="number">0</span>){<span class="comment">//&#x5B58;&#x5728;</span></span><br><span class="line">                map[c]++;</span><br><span class="line">            }<span class="keyword">else</span>{<span class="comment">//&#x4E0D;&#x5B58;&#x5728;</span></span><br><span class="line">                cnt++;</span><br><span class="line">                map[c]++;</span><br><span class="line">                <span class="keyword">if</span>(cnt &gt; k){</span><br><span class="line">                    result = Math.max(i-start,result);</span><br><span class="line">                    <span class="keyword">while</span>(cnt &gt; k){</span><br><span class="line">                        map[s.charAt(start)]--;</span><br><span class="line">                        <span class="keyword">if</span>(map[s.charAt(start)] == <span class="number">0</span>){</span><br><span class="line">                            cnt--;</span><br><span class="line">                        }</span><br><span class="line">                        start++;</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        result = Math.max(result, s.length()-start);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -465,6 +491,18 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+          
+            <a href="/tags/244/" rel="tag"># 244</a>
+          
+            <a href="/tags/3/" rel="tag"># 3</a>
+          
+            <a href="/tags/340/" rel="tag"># 340</a>
+          
+        </div>
       
 
       
@@ -559,7 +597,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-count">48</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -687,7 +725,31 @@
                     
                       
                     
-                    <span class="site-state-item-count">49</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">61</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -723,7 +785,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">LeetCode</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">244. Shortest Word Distance 2 - Medium</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">3. Longest Substring Without Repeating Characters - Medium</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">340. Longest Substring with At Most K Distinct Characters</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">LeetCode - (0 Easy, 2 Medium, 1 Hard)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">244. Shortest Word Distance 2 - Medium</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">3. Longest Substring Without Repeating Characters - Medium</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">340. Longest Substring with At Most K Distinct Characters - Hard</span></a></li></ol></li></ol></div>
             
 
           </div>

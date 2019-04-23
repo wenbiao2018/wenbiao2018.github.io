@@ -117,10 +117,12 @@
 <meta property="og:site_name" content="无烟城">
 <meta property="og:description" content="终于把第一周的任务完成了，用了两周时间。惭愧惭愧。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-25T07:11:53.308Z">
+<meta property="og:image" content="http://yoursite.com/images/LeetCode/353.png">
+<meta property="og:updated_time" content="2019-04-22T02:46:00.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="12周刷题大作战 - Week 2, Day 15, 3&#x2F;24&#x2F;2019">
 <meta name="twitter:description" content="终于把第一周的任务完成了，用了两周时间。惭愧惭愧。">
+<meta name="twitter:image" content="http://yoursite.com/images/LeetCode/353.png">
 
 
 
@@ -386,7 +388,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-25 00:11:53" itemprop="dateModified" datetime="2019-03-25T00:11:53-07:00">2019-03-25</time>
+                <time title="Modified: 2019-04-21 19:46:00" itemprop="dateModified" datetime="2019-04-21T19:46:00-07:00">2019-04-21</time>
               
             
           </span>
@@ -442,7 +444,8 @@
 X&#x5929;&#x5929;&#x540A;&#x7740;&#x8138;&#xFF0C;&#x50CF;&#x6B20;&#x5979;&#x94B1;&#x4F3C;&#x7684;&#x3002;&#x4E00;&#x4E2A;&#x4EBA;&#x4E3A;&#x4EC0;&#x4E48;&#x53EF;&#x4EE5;&#x5BF9;&#x522B;&#x4EBA;&#x8FD9;&#x4E48;&#x4E0D;&#x53CB;&#x597D;&#x3002;</p>
 <h3>LeetCode - 353 (0 Easy, 1 Medium, 0 Hard)</h3>
 <h4>353. Design Snake Game - Medium</h4>
-<h4>Code:</h4>
+<p><img src="/images/LeetCode/353.png" alt=""></p>
+<h5>Code:</h5>
 <p></p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SnakeGame</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Initialize your data structure here.</span></span><br><span class="line"><span class="comment">        <span class="doctag">@param</span> width - screen width</span></span><br><span class="line"><span class="comment">        <span class="doctag">@param</span> height - screen height </span></span><br><span class="line"><span class="comment">        <span class="doctag">@param</span> food - A list of food positions</span></span><br><span class="line"><span class="comment">        E.g food = [[1,1], [1,0]] means the first food is positioned at [1,1], the second is at [1,0]. */</span></span><br><span class="line">    <span class="keyword">private</span> Queue&lt;Integer&gt; _rowQueue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="keyword">private</span> Queue&lt;Integer&gt; _colQueue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span>[][] _broad;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> _foodIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[][] _food;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> _lastRow = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> _lastCol = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SnakeGame</span><span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> height, <span class="keyword">int</span>[][] food)</span> </span>{</span><br><span class="line">        _broad = <span class="keyword">new</span> <span class="keyword">boolean</span>[height][width];</span><br><span class="line">        _food = food;</span><br><span class="line">        _rowQueue.add(_lastRow);</span><br><span class="line">        _colQueue.add(_lastCol);</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Moves the snake.</span></span><br><span class="line"><span class="comment">        <span class="doctag">@param</span> direction - &apos;U&apos; = Up, &apos;L&apos; = Left, &apos;R&apos; = Right, &apos;D&apos; = Down </span></span><br><span class="line"><span class="comment">        <span class="doctag">@return</span> The game&apos;s score after the move. Return -1 if game over. </span></span><br><span class="line"><span class="comment">        Game over when snake crosses the screen boundary or bites its body. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">move</span><span class="params">(String dir)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span> _nextRow = _lastRow;</span><br><span class="line">        <span class="keyword">int</span> _nextCol = _lastCol;</span><br><span class="line">        <span class="keyword">if</span>(dir.equals(<span class="string">&quot;U&quot;</span>)){</span><br><span class="line">            _nextRow--;</span><br><span class="line">        }<span class="keyword">else</span> <span class="keyword">if</span>(dir.equals(<span class="string">&quot;D&quot;</span>)){</span><br><span class="line">            _nextRow++;</span><br><span class="line">        }<span class="keyword">else</span> <span class="keyword">if</span>(dir.equals(<span class="string">&quot;L&quot;</span>)){</span><br><span class="line">            _nextCol--;</span><br><span class="line">        }<span class="keyword">else</span> <span class="keyword">if</span>(dir.equals(<span class="string">&quot;R&quot;</span>)){</span><br><span class="line">            _nextCol++;</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">//System.out.println(&quot;cur position: &quot; + _nextRow + &quot;,&quot; + _nextCol);</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(_nextRow == _broad.length || _nextRow == -<span class="number">1</span> || _nextCol == _broad[<span class="number">0</span>].length || _nextCol == -<span class="number">1</span>){</span><br><span class="line">            <span class="comment">//System.out.println(_broad[_nextRow][_nextCol]);</span></span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        }        </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(_foodIndex != _food.length &amp;&amp; _nextRow == _food[_foodIndex][<span class="number">0</span>] &amp;&amp; _nextCol == _food[_foodIndex][<span class="number">1</span>]){<span class="comment">//_foodIndex != _food.length&#x4E3A;&#x4E86;&#x907F;&#x514D;_food[_foodIndex]&#x8D8A;&#x754C;</span></span><br><span class="line">            _foodIndex++;</span><br><span class="line">        }<span class="keyword">else</span>{</span><br><span class="line">            <span class="comment">//System.out.println(&quot;cur peek: &quot; + _rowQueue.peek() +&quot;, &quot;+_colQueue.peek());</span></span><br><span class="line">            _broad[_rowQueue.peek()][_colQueue.peek()] = <span class="keyword">false</span>;</span><br><span class="line">            _rowQueue.remove();</span><br><span class="line">            _colQueue.remove();</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span>(_broad[_nextRow][_nextCol]){</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;<span class="comment">//&#x5224;&#x65AD;&#x5B8C;&#x86C7;&#x5177;&#x4F53;&#x5360;&#x7684;&#x4F4D;&#x7F6E;&#x4E4B;&#x540E;&#xFF08;&#x8981;&#x4E0D;&#x8981;&#x81EA;&#x8EAB;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#xFF09;&#x518D;&#x770B;&#x4E0B;&#x4E00;&#x6B65;&#x80FD;&#x4E0D;&#x80FD;&#x78B0;&#x5230;&#x81EA;&#x5DF1;</span></span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        _broad[_nextRow][_nextCol] = <span class="keyword">true</span>;</span><br><span class="line">        _rowQueue.add(_nextRow);</span><br><span class="line">        _colQueue.add(_nextCol);    </span><br><span class="line">        _lastRow = _nextRow;</span><br><span class="line">        _lastCol = _nextCol;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> _foodIndex;   </span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your SnakeGame object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * SnakeGame obj = new SnakeGame(width, height, food);</span></span><br><span class="line"><span class="comment"> * int param_1 = obj.move(direction);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></tbody></table></figure><p></p>
 <h5>Testcases:</h5>
 <p></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[&quot;SnakeGame&quot;,&quot;move&quot;,&quot;move&quot;,&quot;move&quot;,&quot;move&quot;,&quot;move&quot;,&quot;move&quot;,&quot;move&quot;,&quot;move&quot;,&quot;move&quot;,&quot;move&quot;,&quot;move&quot;,&quot;move&quot;]</span><br><span class="line">[[3,3,[[2,0],[0,0],[0,2],[2,2]]],[&quot;D&quot;],[&quot;D&quot;],[&quot;R&quot;],[&quot;U&quot;],[&quot;U&quot;],[&quot;L&quot;],[&quot;D&quot;],[&quot;R&quot;],[&quot;R&quot;],[&quot;U&quot;],[&quot;L&quot;],[&quot;D&quot;]]</span><br></pre></td></tr></tbody></table></figure><p></p>
@@ -586,7 +589,7 @@ X&#x5929;&#x5929;&#x540A;&#x7740;&#x8138;&#xFF0C;&#x50CF;&#x6B20;&#x5979;&#x94B1
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-count">48</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -714,7 +717,31 @@ X&#x5929;&#x5929;&#x540A;&#x7740;&#x8138;&#xFF0C;&#x50CF;&#x6B20;&#x5979;&#x94B1
                     
                       
                     
-                    <span class="site-state-item-count">49</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">61</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -750,7 +777,7 @@ X&#x5929;&#x5929;&#x540A;&#x7740;&#x8138;&#xFF0C;&#x50CF;&#x6B20;&#x5979;&#x94B1
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">LeetCode - 353 (0 Easy, 1 Medium, 0 Hard)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">353. Design Snake Game - Medium</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">Code:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.</span> <span class="nav-text">Testcases:</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">LeetCode - 353 (0 Easy, 1 Medium, 0 Hard)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">353. Design Snake Game - Medium</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.</span> <span class="nav-text">Code:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.2.</span> <span class="nav-text">Testcases:</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
