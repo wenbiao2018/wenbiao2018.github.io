@@ -1,9 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[12周刷题大作战 - Week 6, Day 46, 4/24/2019]]></title>
+    <url>%2F2019%2F04%2F24%2FDay-46%2F</url>
+    <content type="text"><![CDATA[LeetCode - (1 Easy, 1 Medium, 0 Hard) 53. Maximum Subarray - Easy Easy&#x7684;&#x9898;&#x76EE;&#x8FD8;&#x662F;&#x60F3;&#x4E86;&#x8001;&#x534A;&#x5929;&#xFF0C;&#x5F88;&#x7ECF;&#x5178;&#x7684;&#x7B97;&#x6CD5;&#x554A; 123456789101112131415161718class Solution { public int maxSubArray(int[] nums) { //int[] result = new int[nums.length]; int cur = 0; int pre = 0; int finalResult = Integer.MIN_VALUE; for(int i=0; i&lt;nums.length; i++){ cur = pre&gt;0?pre + nums[i]:nums[i]; pre = cur; finalResult = Math.max(pre, finalResult); } return finalResult; }} 152. Maximum Product Subarray - Medium &#x4E00;&#x5F00;&#x59CB;&#x60F3;&#x5BF9;&#x4E86;&#xFF0C;&#x7ED3;&#x679C;&#x8D8A;&#x60F3;&#x8D8A;&#x504F;&#xFF0C;&#x8111;&#x5B50;&#x77ED;&#x8DEF;&#x4E86; 12345678910111213141516171819202122class Solution { public int maxProduct(int[] nums) { int cMin = 1; int cMax = 1; int pMin = 1; int pMax = 1; int result = Integer.MIN_VALUE; for(int num:nums){ pMin = cMin; pMax = cMax; cMin = Math.min(num, Math.min(num*pMin, num*pMax)); cMax = Math.max(num, Math.max(num*pMin, num*pMax)); result = Math.max(result, cMax); } return result; }} 560. Subarray Sum Equals K O(n^2)&#x4E86;&#x611F;&#x89C9; 1234567891011121314151617class Solution { public int subarraySum(int[] nums, int k) { int[] sums = new int[nums.length]; int cnt = 0; for(int i=0; i&lt;nums.length; i++){ for(int j=0; j&lt;=i; j++){ sums[j] += nums[i]; if(sums[j]==k){ cnt++; } } } return cnt; }} &#x7167;&#x7740;&#x8001;&#x5E08;&#x7684;&#x601D;&#x8DEF;&#x6765;&#x4E86;&#x4E00;&#x904D; 12345678910111213141516171819202122232425262728class Solution { public int subarraySum(int[] nums, int k) { Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;(); int sum = 0; int cnt = 0; for(int num:nums){ sum += num; if(map.containsKey(sum-k)){ cnt += map.get(sum-k); } if(map.containsKey(sum)){ map.put(sum, map.get(sum)+1); }else{ map.put(sum, 1); } } if(map.containsKey(k)){ cnt += map.get(k); } return cnt; }} document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+      <categories>
+        <category>转行</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>53</tag>
+        <tag>152</tag>
+        <tag>560</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[12周刷题大作战 - Week 6, Day 45, 4/23/2019]]></title>
+    <url>%2F2019%2F04%2F24%2FDay-45%2F</url>
+    <content type="text"><![CDATA[&#x641E;&#x4E86;&#x4E00;&#x5929;FN&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x597D;&#x5728;&#x90FD;&#x641E;&#x5B9A;&#x4E86;&#x3002; document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+      <categories>
+        <category>转行</category>
+      </categories>
+      <tags>
+        <tag>休息</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[12周刷题大作战 - Week 6, Day 44, 4/22/2019]]></title>
     <url>%2F2019%2F04%2F22%2FDay-44%2F</url>
-    <content type="text"><![CDATA[&#x4ECA;&#x5929;&#x4E03;&#x70B9;&#x591A;&#x5C31;&#x8D77;&#x4E86;&#xFF0C;&#x73B0;&#x5728;&#x5341;&#x4E00;&#x70B9;&#x8FD8;&#x6CA1;&#x6709;&#x8EBA;&#x4E0B;&#xFF0C;&#x597D;&#x957F;&#x7684;&#x4E00;&#x5929;&#x3002; LeetCode 209. Minimum Size Subarray Sum - Medium &#x597D;&#x4E45;&#x6CA1;&#x505A;&#x9898;&#x4E86;&#xFF0C;&#x4E00;&#x5F00;&#x59CB;&#x8111;&#x5B50;&#x77ED;&#x8DEF;&#x4E86; 12345678910111213141516171819202122232425class Solution { public int minSubArrayLen(int s, int[] nums) { if(nums.length == 0){ return 0; } int start = 0; int sum = 0; int result = Integer.MAX_VALUE; for(int i=0; i &lt; nums.length; i++){ sum += nums[i]; while(sum &gt;= s){ result = Math.min(result, i-start+1); sum -= nums[start]; start++; } } if(start == 0 &amp;&amp; sum &lt; s){ return 0; } return result; }} 713. Subarray Product Less Than K - Medium 1234567891011121314151617181920212223242526class Solution { public int numSubarrayProductLessThanK(int[] nums, int k) { long pro = 1; long result = 0; int dup = 0; int start = 0; for(int i=0; i&lt;nums.length; i++){ pro *= nums[i]; if(pro &gt;= k){ result += (i-start+1)*0.5*(i-start); while(i&gt;= start &amp;&amp; pro &gt;= k){ pro /= nums[start]; start++; } result -= (i-start+1)*0.5*(i-start); } } if(pro &lt; k){ result += (nums.length-start+1)*0.5*(nums.length-start); } return (int)(result); }} document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+    <content type="text"><![CDATA[&#x4ECA;&#x5929;&#x4E03;&#x70B9;&#x591A;&#x5C31;&#x8D77;&#x4E86;&#xFF0C;&#x73B0;&#x5728;&#x5341;&#x4E00;&#x70B9;&#x8FD8;&#x6CA1;&#x6709;&#x8EBA;&#x4E0B;&#xFF0C;&#x597D;&#x957F;&#x7684;&#x4E00;&#x5929;&#x3002; LeetCode - (0 Easy, 2 Medium, 0 Hard) 209. Minimum Size Subarray Sum - Medium &#x597D;&#x4E45;&#x6CA1;&#x505A;&#x9898;&#x4E86;&#xFF0C;&#x4E00;&#x5F00;&#x59CB;&#x8111;&#x5B50;&#x77ED;&#x8DEF;&#x4E86; 12345678910111213141516171819202122232425class Solution { public int minSubArrayLen(int s, int[] nums) { if(nums.length == 0){ return 0; } int start = 0; int sum = 0; int result = Integer.MAX_VALUE; for(int i=0; i &lt; nums.length; i++){ sum += nums[i]; while(sum &gt;= s){ result = Math.min(result, i-start+1); sum -= nums[start]; start++; } } if(start == 0 &amp;&amp; sum &lt; s){ return 0; } return result; }} 713. Subarray Product Less Than K - Medium 1234567891011121314151617181920212223242526class Solution { public int numSubarrayProductLessThanK(int[] nums, int k) { long pro = 1; long result = 0; int dup = 0; int start = 0; for(int i=0; i&lt;nums.length; i++){ pro *= nums[i]; if(pro &gt;= k){ result += (i-start+1)*0.5*(i-start); while(i&gt;= start &amp;&amp; pro &gt;= k){ pro /= nums[start]; start++; } result -= (i-start+1)*0.5*(i-start); } } if(pro &lt; k){ result += (nums.length-start+1)*0.5*(nums.length-start); } return (int)(result); }} document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+      <categories>
+        <category>转行</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+        <tag>209</tag>
+        <tag>713</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[12周刷题大作战 - Week 5, Day 43, 4/21/2019]]></title>
@@ -92,9 +125,9 @@
       <tags>
         <tag>LeetCode</tag>
         <tag>692</tag>
-        <tag>253</tag>
         <tag>244</tag>
         <tag>340</tag>
+        <tag>253</tag>
         <tag>632</tag>
       </tags>
   </entry>
@@ -145,8 +178,8 @@
       <tags>
         <tag>LeetCode</tag>
         <tag>239</tag>
-        <tag>853</tag>
         <tag>3</tag>
+        <tag>853</tag>
       </tags>
   </entry>
   <entry>
@@ -325,8 +358,8 @@
       <tags>
         <tag>LeetCode</tag>
         <tag>554</tag>
-        <tag>781</tag>
         <tag>356</tag>
+        <tag>781</tag>
       </tags>
   </entry>
   <entry>
@@ -348,7 +381,7 @@
   <entry>
     <title><![CDATA[LeetCode-ToDoList]]></title>
     <url>%2F2019%2F03%2F25%2FLeetCode-ToDoList%2F</url>
-    <content type="text"><![CDATA[&#x1F4C6; &#x7B2C;&#x4E09;&#x5468;&#x8BA1;&#x5212;&#xFF1A; &#x590D;&#x4E60;&#x524D;&#x4E24;&#x5468;&#x5185;&#x5BB9;&#xFF08;17&#x9053;&#x65E7;&#x9898;&#xFF09; 353 &#x1F389; 636 &#x1F389; 71 &#x1F389; 385 &#x1F389; 735 &#x1F389; 356 &#x1F389; 781 &#x1F389; 554 &#x1F389; 36 &#x1F389; 205 &#x1F389; 151 &#x1F389; 163 &#x1F389; 38 &#x1F389; 228 &#x1F389; 26 &#x1F389; 27 &#x1F389; 80 &#x1F389; 17&#x9053;&#x65B0;&#x9898;&#xFF08;&#x4E00;&#x5929;&#x81F3;&#x5C11;3&#x9053;Medium&#x65B0;&#x9898;&#xFF0C;&#x4E24;&#x9053;Medium&#x65E7;&#x9898;&#xFF09; Sliding Window Maximum &#x1F389; My Calendar I &#x1F389; Find Median from Data Stream &#x1F389; Merge k Sorted Lists &#x1F389; Rearrange String k Distance Apart &#x1F389; Top K Frequent Words &#x1F389; Merge Intervals &#x1F389; Largest Number &#x1F389; Car Fleet &#x1F389; Meeting Rooms II &#x1F389; Pow(x, n) &#x1F389; Shortest Word Distance II &#x1F389; Longest Substring Without Repeating Characters &#x1F389; Longest Substring with At Most K Distinct Characters &#x1F389; Minimum Window Substring &#x1F389; Smallest Range &#x1F389; &#x1F4C6; &#x7B2C;&#x4E94;&#x5468;&#x8BA1;&#x5212;&#xFF1A;&#x7528;&#x4E86;&#x4E24;&#x5468;&#x534A;&#x7EC8;&#x4E8E;&#x628A;&#x7B2C;&#x4E09;&#x5468;&#x8BA1;&#x5212;&#x5B8C;&#x6210;&#x4E86;&#xFF0C;&#x518D;&#x5217;&#x4E2A;&#x7B2C;&#x4E94;&#x5468;&#x8BA1;&#x5212;&#x5427;&#xFF0C;&#x7136;&#x540E;&#x53EF;&#x4EE5;&#x5148;&#x628A;&#x4E4B;&#x524D;&#x7684;&#x590D;&#x4E60;&#x4E86; &#x590D;&#x4E60;&#x4E4B;&#x524D;&#x5185;&#x5BB9; &#x65B0;&#x9898; - &#x5982;&#x679C;&#x6709;&#x65E7;&#x9898;&#xFF0C;&#x770B;&#x770B;&#x7528;&#x6CA1;&#x7528;&#x5230;&#x65B0;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x73B0;&#x5728;&#x7684;&#x4EFB;&#x52A1;&#x4E3B;&#x8981;&#x662F;&#x628A;&#x6CA1;&#x89C1;&#x8FC7;&#x7684;&#x90FD;&#x5148;&#x89C1;&#x4E00;&#x904D; Minimum Size Subarray Sum &#x1F389; Subarray Product Less Than K &#x1F389; Maximum Subarray Maximum Product Subarray Subarray Sum Equals K Maximum Size Subarray Sum Equals K Continuous Subarray Sum Contiguous Array Trapping Rain Water Container With Most Water Largest Rectangle in Histogram Maximal Rectangle Range Sum Query 2D - Immutable Shuffle an Array Sort Colors Kth Largest Element in an Array Guess Number Higher or Lower Valid Perfect Square Find First and Last Position of Element in Sorted Array Find K Closest Elements Longest Substring Without Repeating Characters Longest Substring with At Most K Distinct Characters Minimum Size Subarray Sum Minimum Window Substring gas station Longest Valid Parentheses document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+    <content type="text"><![CDATA[&#x1F4C6; &#x7B2C;&#x4E09;&#x5468;&#x8BA1;&#x5212;&#xFF1A; &#x590D;&#x4E60;&#x524D;&#x4E24;&#x5468;&#x5185;&#x5BB9;&#xFF08;17&#x9053;&#x65E7;&#x9898;&#xFF09; 353 &#x1F389; 636 &#x1F389; 71 &#x1F389; 385 &#x1F389; 735 &#x1F389; 356 &#x1F389; 781 &#x1F389; 554 &#x1F389; 36 &#x1F389; 205 &#x1F389; 151 &#x1F389; 163 &#x1F389; 38 &#x1F389; 228 &#x1F389; 26 &#x1F389; 27 &#x1F389; 80 &#x1F389; 17&#x9053;&#x65B0;&#x9898;&#xFF08;&#x4E00;&#x5929;&#x81F3;&#x5C11;3&#x9053;Medium&#x65B0;&#x9898;&#xFF0C;&#x4E24;&#x9053;Medium&#x65E7;&#x9898;&#xFF09; Sliding Window Maximum &#x1F389; My Calendar I &#x1F389; Find Median from Data Stream &#x1F389; Merge k Sorted Lists &#x1F389; Rearrange String k Distance Apart &#x1F389; Top K Frequent Words &#x1F389; Merge Intervals &#x1F389; Largest Number &#x1F389; Car Fleet &#x1F389; Meeting Rooms II &#x1F389; Pow(x, n) &#x1F389; Shortest Word Distance II &#x1F389; Longest Substring Without Repeating Characters &#x1F389; Longest Substring with At Most K Distinct Characters &#x1F389; Minimum Window Substring &#x1F389; Smallest Range &#x1F389; &#x1F4C6; &#x7B2C;&#x4E94;&#x5468;&#x8BA1;&#x5212;&#xFF1A;&#x7528;&#x4E86;&#x4E24;&#x5468;&#x534A;&#x7EC8;&#x4E8E;&#x628A;&#x7B2C;&#x4E09;&#x5468;&#x8BA1;&#x5212;&#x5B8C;&#x6210;&#x4E86;&#xFF0C;&#x518D;&#x5217;&#x4E2A;&#x7B2C;&#x4E94;&#x5468;&#x8BA1;&#x5212;&#x5427;&#xFF0C;&#x7136;&#x540E;&#x53EF;&#x4EE5;&#x5148;&#x628A;&#x4E4B;&#x524D;&#x7684;&#x590D;&#x4E60;&#x4E86; &#x590D;&#x4E60;&#x4E4B;&#x524D;&#x5185;&#x5BB9; &#x65B0;&#x9898; - &#x5982;&#x679C;&#x6709;&#x65E7;&#x9898;&#xFF0C;&#x770B;&#x770B;&#x7528;&#x6CA1;&#x7528;&#x5230;&#x65B0;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x73B0;&#x5728;&#x7684;&#x4EFB;&#x52A1;&#x4E3B;&#x8981;&#x662F;&#x628A;&#x6CA1;&#x89C1;&#x8FC7;&#x7684;&#x90FD;&#x5148;&#x89C1;&#x4E00;&#x904D; Minimum Size Subarray Sum &#x1F389; Subarray Product Less Than K &#x1F389; Maximum Subarray &#x1F389; Maximum Product Subarray &#x1F389; Subarray Sum Equals K &#x1F389; Maximum Size Subarray Sum Equals K Continuous Subarray Sum Contiguous Array Trapping Rain Water Container With Most Water Largest Rectangle in Histogram Maximal Rectangle Range Sum Query 2D - Immutable Shuffle an Array Sort Colors Kth Largest Element in an Array Guess Number Higher or Lower Valid Perfect Square Find First and Last Position of Element in Sorted Array Find K Closest Elements Longest Substring Without Repeating Characters Longest Substring with At Most K Distinct Characters Minimum Size Subarray Sum Minimum Window Substring gas station Longest Valid Parentheses document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
       <categories>
         <category>转行</category>
       </categories>
@@ -448,12 +481,12 @@
       <tags>
         <tag>LeetCode</tag>
         <tag>151</tag>
-        <tag>36</tag>
         <tag>205</tag>
         <tag>299</tag>
         <tag>554</tag>
-        <tag>781</tag>
+        <tag>36</tag>
         <tag>356</tag>
+        <tag>781</tag>
       </tags>
   </entry>
   <entry>
@@ -477,8 +510,8 @@
       </categories>
       <tags>
         <tag>LeetCode</tag>
-        <tag>mod</tag>
         <tag>781</tag>
+        <tag>mod</tag>
       </tags>
   </entry>
   <entry>
