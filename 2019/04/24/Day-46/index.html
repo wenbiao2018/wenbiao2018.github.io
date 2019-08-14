@@ -109,19 +109,21 @@
 
 
 
-  <meta name="description" content="LeetCode - (1 Easy, 1 Medium, 0 Hard)">
+  <meta name="description" content="加油加油！">
 <meta name="keywords" content="LeetCode,53,152,560">
 <meta property="og:type" content="article">
-<meta property="og:title" content="12周刷题大作战 - Week 6, Day 46, 4&#x2F;24&#x2F;2019">
+<meta property="og:title" content="12周刷题大作战 - Week 7, Day 46, 4&#x2F;24&#x2F;2019">
 <meta property="og:url" content="http://yoursite.com/2019/04/24/Day-46/index.html">
 <meta property="og:site_name" content="无烟城">
-<meta property="og:description" content="LeetCode - (1 Easy, 1 Medium, 0 Hard)">
+<meta property="og:description" content="加油加油！">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/LeetCode/53.png">
-<meta property="og:updated_time" content="2019-04-25T05:33:44.974Z">
+<meta property="og:image" content="http://yoursite.com/images/LeetCode/152.png">
+<meta property="og:image" content="http://yoursite.com/images/LeetCode/560.png">
+<meta property="og:updated_time" content="2019-04-25T19:34:59.847Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="12周刷题大作战 - Week 6, Day 46, 4&#x2F;24&#x2F;2019">
-<meta name="twitter:description" content="LeetCode - (1 Easy, 1 Medium, 0 Hard)">
+<meta name="twitter:title" content="12周刷题大作战 - Week 7, Day 46, 4&#x2F;24&#x2F;2019">
+<meta name="twitter:description" content="加油加油！">
 <meta name="twitter:image" content="http://yoursite.com/images/LeetCode/53.png">
 
 
@@ -139,7 +141,7 @@
   };
 </script>
 
-  <title>12周刷题大作战 - Week 6, Day 46, 4/24/2019 | 无烟城</title>
+  <title>12周刷题大作战 - Week 7, Day 46, 4/24/2019 | 无烟城</title>
   
 
 
@@ -346,7 +348,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">12周刷题大作战 - Week 6, Day 46, 4/24/2019
+          <h1 class="post-title" itemprop="name headline">12周刷题大作战 - Week 7, Day 46, 4/24/2019
               
             
           </h1>
@@ -371,12 +373,24 @@
                 
               
 
-              <time title="Created: 2019-04-24 18:15:53 / Modified: 22:33:44" itemprop="dateCreated datePublished" datetime="2019-04-24T18:15:53-07:00">2019-04-24</time>
+              <time title="Created: 2019-04-24 18:15:53" itemprop="dateCreated datePublished" datetime="2019-04-24T18:15:53-07:00">2019-04-24</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-25 12:34:59" itemprop="dateModified" datetime="2019-04-25T12:34:59-07:00">2019-04-25</time>
               
             
           </span>
@@ -427,17 +441,20 @@
       
 
       
-        <h4>LeetCode - (1 Easy, 1 Medium, 0 Hard)</h4>
-<p><a id="more"></a></p>
+        <p>&#x52A0;&#x6CB9;&#x52A0;&#x6CB9;&#xFF01;
+<a id="more"></a></p>
+<h4>LeetCode - (1 Easy, 1 Medium, 0 Hard)</h4>
 <h5>53. Maximum Subarray - Easy</h5>
 <p>Easy&#x7684;&#x9898;&#x76EE;&#x8FD8;&#x662F;&#x60F3;&#x4E86;&#x8001;&#x534A;&#x5929;&#xFF0C;&#x5F88;&#x7ECF;&#x5178;&#x7684;&#x7B97;&#x6CD5;&#x554A;
 <img src="/images/LeetCode/53.png" alt="">
 </p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>{</span><br><span class="line">        <span class="comment">//int[] result = new int[nums.length];</span></span><br><span class="line">        <span class="keyword">int</span> cur = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> pre = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> finalResult = Integer.MIN_VALUE;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++){</span><br><span class="line">            </span><br><span class="line">            cur = pre&gt;<span class="number">0</span>?pre + nums[i]:nums[i];</span><br><span class="line">            pre = cur;</span><br><span class="line">            finalResult = Math.max(pre, finalResult);</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> finalResult;</span><br><span class="line">        </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
 <h5>152. Maximum Product Subarray - Medium</h5>
 <p>&#x4E00;&#x5F00;&#x59CB;&#x60F3;&#x5BF9;&#x4E86;&#xFF0C;&#x7ED3;&#x679C;&#x8D8A;&#x60F3;&#x8D8A;&#x504F;&#xFF0C;&#x8111;&#x5B50;&#x77ED;&#x8DEF;&#x4E86;
+<img src="/images/LeetCode/152.png" alt="">
 </p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProduct</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>{</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> cMin = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> cMax = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> pMin = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> pMax = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> result = Integer.MIN_VALUE;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num:nums){</span><br><span class="line">            pMin = cMin;</span><br><span class="line">            pMax = cMax;</span><br><span class="line">            </span><br><span class="line">            cMin = Math.min(num, Math.min(num*pMin, num*pMax));</span><br><span class="line">            cMax = Math.max(num, Math.max(num*pMin, num*pMax));</span><br><span class="line">            </span><br><span class="line">            result = Math.max(result, cMax);</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
 <h5>560. Subarray Sum Equals K</h5>
 <p>O(n^2)&#x4E86;&#x611F;&#x89C9;
+<img src="/images/LeetCode/560.png" alt="">
 </p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">subarraySum</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>{</span><br><span class="line">        <span class="keyword">int</span>[] sums = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;=i; j++){</span><br><span class="line">                sums[j] += nums[i];</span><br><span class="line">                <span class="keyword">if</span>(sums[j]==k){</span><br><span class="line">                    cnt++;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line">        <span class="keyword">return</span> cnt;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>&#x7167;&#x7740;&#x8001;&#x5E08;&#x7684;&#x601D;&#x8DEF;&#x6765;&#x4E86;&#x4E00;&#x904D;
 </p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">subarraySum</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>{</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num:nums){</span><br><span class="line">            sum += num;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(sum-k)){</span><br><span class="line">                cnt += map.get(sum-k);</span><br><span class="line">            }</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(sum)){</span><br><span class="line">                map.put(sum, map.get(sum)+<span class="number">1</span>);</span><br><span class="line">            }<span class="keyword">else</span>{</span><br><span class="line">                map.put(sum, <span class="number">1</span>);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(map.containsKey(k)){</span><br><span class="line">            cnt += map.get(k);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> cnt;</span><br><span class="line">        </span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
@@ -498,8 +515,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/24/Day-45/" rel="next" title="12周刷题大作战 - Week 6, Day 45, 4/23/2019">
-                <i class="fa fa-chevron-left"></i> 12周刷题大作战 - Week 6, Day 45, 4/23/2019
+              <a href="/2019/04/24/Day-45/" rel="next" title="12周刷题大作战 - Week 7, Day 45, 4/23/2019">
+                <i class="fa fa-chevron-left"></i> 12周刷题大作战 - Week 7, Day 45, 4/23/2019
               </a>
             
           </div>
@@ -507,6 +524,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/25/Day-47/" rel="prev" title="12周刷题大作战 - Week 7, Day 47, 4/25/2019">
+                12周刷题大作战 - Week 7, Day 47, 4/25/2019 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -578,7 +599,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-count">81</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -740,7 +761,29 @@
                     
                       
                     
-                    <span class="site-state-item-count">66</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">77</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
